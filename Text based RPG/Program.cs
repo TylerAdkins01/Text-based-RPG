@@ -6,6 +6,8 @@ bool leave = true;
 bool canSteal = true;
 bool hasBomb = false;
 
+
+//Begin Encounter at a Shop with the ability to buy one item
 Console.WriteLine("""  
    .------\ /------.
    |       -       |
@@ -129,6 +131,7 @@ else if(a == "5")
     }
 }
 
+//Proceed by encountering a weak enemy
 Console.WriteLine($"HP: {HP} Str: {Str} Gold: {gold}");
 Console.WriteLine("You venture into the distance with the hope of vanquishing all enemies in your path");
 Console.WriteLine("""
@@ -221,47 +224,37 @@ while (leave)
             }
             leave = false;
             Console.WriteLine("The creature blows up in a fiery explosion");
-            Console.WriteLine("Congratulations! You have defeated your first enemy");
+            Console.WriteLine("Congratulations! You have incinerated your first enemy");
             break;
 
         default:
             break;
     }
 }
-// if (hasFire)
-// {
-//     Console.WriteLine("The enemy's foreign language startled you so much that you immediatly cast fireball");
-//     Console.WriteLine("This might have been the worst thing you could've done");
-//     Console.WriteLine("Everything within a 5 mile radius is incinerated");
-//     Console.WriteLine("You and the creature are eviserated");
-//     HP = -1000;
-// } else if (Str > 6)
-// {
-//     Console.WriteLine("As the creature finishes his sentence, you initiate combat. However, it seems you were a little...too powerful...");
-//     Console.WriteLine("The creature doesnt even try to defend himself, He immediatly keels over at the sight of your blade");
-//     Console.WriteLine("\nYou are able to nab a health potion and what appears to be a makeshift bomb");
-//     HP = 10;
-//     gold += 2;
-//     hasBomb = true;
-// } else if(Str > 3)
-// {
-//     Console.WriteLine("As the creature finishes his sentence, you initiate combat.");
-//     Console.WriteLine("Its a hard fought battle, but in the end you emerge victorious");
-//     Console.WriteLine("The battle with the creature hurt you, but you've gained valuable experience");
-//     HP-= 5;
-//     Str = 6;
-//     gold++;
-// }
-// else
-// {
-//     Console.WriteLine("What a depressing end to your adventure...");
-//     Console.WriteLine("Your blade, or lack thereof, was no match for the monster's mighty explosives");
-//     HP = 0;
-// }
+leave = true;
+while (leave)
+{
+    if (HP <= 0)
+    {
+        Console.WriteLine("You have been defeated...");
+        Environment.Exit(0);
+    }
+    else
+    {
+    Console.WriteLine("Where do you want to go next?");
+    Console.WriteLine("""
+    1 - set up camp and rest
+    2 - explore the forest
+    """);
+}
+string a = Console.ReadLine()!;
+if (a == "1" || a == "2")
+{
+    leave = false;
+}
+    else
+    {
+        Console.WriteLine("What?");
+    }
 
-// Console.WriteLine("to be continued...");
-// Console.Write($"HP: {HP} Str: {Str} Gold: {gold}");
-// if (hasBomb)
-// {
-//     Console.WriteLine(" (x1 Bomb)");
-// }
+}
