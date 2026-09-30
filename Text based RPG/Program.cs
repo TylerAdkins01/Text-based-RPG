@@ -169,6 +169,7 @@ while (leave)
                 HP = 10;
                 gold += 2;
                 hasBomb = true;
+                leave = false;
             } else if(Str > 3)
             {
                 Console.WriteLine("As the creature finishes his sentence, you initiate combat.");
@@ -177,12 +178,14 @@ while (leave)
                 HP-= 5;
                 Str = 6;
                 gold++;
+                leave = false;
             }
             else
             {
                 Console.WriteLine("What a depressing end to your adventure...");
                 Console.WriteLine("Your blade, or lack thereof, was no match for the monster's mighty explosives");
                 HP = 0;
+                Environment.Exit(0);
             }
             break;
 
@@ -198,10 +201,30 @@ while (leave)
             break;
 
         case "4":
+            if (hasFire)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+
+                Console.WriteLine("""
+       --_--
+    (  -_    _).
+  ( ~       )   )
+(( )  (    )  ()  )
+ (.   )) (       )
+   ``..     ..``
+        | |
+      (=| |=)
+        | |         jnh
+    (../( )\.))
+""");
+            Console.ResetColor();
+            }
+            leave = false;
+            Console.WriteLine("The creature blows up in a fiery explosion");
+            Console.WriteLine("Congratulations! You have defeated your first enemy");
             break;
 
         default:
-            Console.WriteLine("What?");
             break;
     }
 }
