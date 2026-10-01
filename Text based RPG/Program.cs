@@ -325,11 +325,99 @@ Thank you for visiting https://asciiart.website/
 This ASCII pic can be found at
 https://asciiart.website/art/5342
 """);
-        Console.WriteLine("You find a hidden treasure!");
-        gold += 10;
-        leave = false;
+        Console.WriteLine("It seems that a inconvenient branch lies in your path.");
+        Console.WriteLine("will you try to:\n 1 - Move it\n 2 - Go around it\n 3 - DESTROY IT!!!");
+        if (hasBomb)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("4 - BOOOM!!");
+            Console.ResetColor();
+        }
+        while (leave)
+        {
+            string b = Console.ReadLine()!;
+            switch (b)
+            {
+                case "1":
+                    Console.WriteLine("You decide to move the branch.");
+                    Console.WriteLine("The branch is far too heavy to move.");
+                    break;
+                case "2":
+                    Console.WriteLine("You choose to go around the branch.");
+                    int t = Random.Shared.Next(1, 3);
+                    if (t == 1)
+                    {
+                        Console.WriteLine("You successfully go around the branch.");
+                        Console.WriteLine("Why doesn't everyone just walk around it?");
+                        leave = false;
+                    } else if (t == 2)
+                    {
+                        Console.WriteLine("As you take a step beside the branch, your foot falls through the leaves.");
+                        Console.WriteLine("A pit opens beneath your feet, and you fall into it.");
+                        Console.WriteLine("the fall is fatal and your adventure comes to a depressing end.");
+                        Environment.Exit(0);
+                    }
+                    break;
+                case "3":
+                    Console.WriteLine("You try to destroy the branch.");
+                    if (Str > 5)
+                    {
+                        Console.WriteLine("You successfully destroy the branch.");
+                        leave = false;
+                        break;
+                    } else
+                    {
+                        Console.WriteLine("the branch endures your attack. and you suffer a sore wrist because of it.");
+                        HP--;
+                        break;
+                    }
+                    case "4":
+                        if (hasBomb)
+                        {
+                            Console.WriteLine("You use the bomb to destroy the branch.");
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
+                            Console.WriteLine("""
+                               ________________
+                          ____/ (  (    )   )  \___
+                         /( (  (  )   _    ))  )   )\
+                       ((     (   )(    )  )   (   )  )
+                     ((/  ( _(   )   (   _) ) (  () )  )
+                    ( (  ( (_)   ((    (   )  .((_ ) .  )_
+                   ( (  )    (      (  )    )   ) . ) (   )
+                  (  (   (  (   ) (  _  ( _) ).  ) . ) ) ( )
+                  ( (  (   ) (  )   (  ))     ) _)(   )  )  )
+                 ( (  ( \ ) (    (_  ( ) ( )  )   ) )  )) ( )
+                  (  (   (  (   (_ ( ) ( _    )  ) (  )  )   )
+                 ( (  ( (  (  )     (_  )  ) )  _)   ) _( ( )
+                  ((  (   )(    (     _    )   _) _(_ (  (_ )
+                   (_((__(_(__(( ( ( |  ) ) ) )_))__))_)___)
+                   ((__)        \\||lll|l||///          \_))
+                            (   /(/ (  )  ) )\   )
+                          (    ( ( ( | | ) ) )\   )
+                           (   /(| / ( )) ) ) )) )
+                         (     ( ((((_(|)_)))))     )
+                          (      ||\(|(|)|/||     )
+                        (        |(||(||)||||        )
+                          (     //|/l|||)|\\ \     )
+                        (/ / //  /|//||||\\  \ \  \ _)
+-------------------------------------------------------------------------------
+""");
+                            Console.WriteLine("It seems the bomb was a little more powerful than expected.");
+                            HP = -10000;
+                            Console.WriteLine("You, as well as the branch, have blown up.");
+                            Environment.Exit(0);
+
+                        }
+                        break;
+                    default:
+                        Console.WriteLine("What?");
+                        break;
+                }
+            }
+        }
     }
 }
 
 Console.WriteLine("To be continued...");
+Console.WriteLine($"HP: {HP} Str: {Str} Gold: {gold}");
 Environment.Exit(1);
