@@ -28,6 +28,7 @@ _______________________
 """);
 Console.WriteLine("The Shopkeep: \"How may I help you today?\"");
 
+await Task.Delay(1000); // Simulate delay
 
 while(leave){
 Console.WriteLine($"\nNarrator: \"it appears you have {gold} Gold currently, what will you pick?\"");
@@ -101,14 +102,18 @@ _______________________
      \_____v_____/
 """);
         Console.WriteLine("What are you---AHH!");
+        await Task.Delay(1000);
         HP -= 9;
         Console.WriteLine("You reach over the counter and attempt to swiftly strike the Shopkeep");
+        await Task.Delay(1000);
         Console.WriteLine("Narrator: \"A short fight ensues. You trade hits until the you ram the shopkeep into the counter, you may have won this fight, but at what cost?\"");
+        await Task.Delay(1000);
         leave = false;
     }
 else if(a == "4" && canSteal)
     {
         Console.WriteLine("You attempt to snatch the nearest shiniest item of the shelf beside you");
+        await Task.Delay(1000);
         Console.WriteLine("you are able to grab a sword with a faint blue crystaline appearance without the Shopkeep noticing, this will help in your adventures to come.");
         Str = Str * 2;
         canSteal = false;
@@ -116,7 +121,9 @@ else if(a == "4" && canSteal)
 else if (a == "4" && !canSteal)
     {
         Console.WriteLine("The Shopkeep yells at you: \"Get your gruby little fingers out of my shop!!!\"");
+        await Task.Delay(1000);
         Console.WriteLine("The Shopkeep attacks you with every weapon in his reach and you are killed in the middle of his shop");
+        await Task.Delay(1000);
         Console.WriteLine("Your greed sickens me...");
         HP -= 10;
         break;
@@ -133,6 +140,7 @@ else if(a == "5")
 
 //Proceed by encountering a weak enemy
 Console.WriteLine($"HP: {HP} Str: {Str} Gold: {gold}");
+await Task.Delay(1000);
 Console.WriteLine("You venture into the distance with the hope of vanquishing all enemies in your path");
 Console.WriteLine("""
   |\_/|
@@ -143,6 +151,7 @@ Console.WriteLine("""
 (___|___)
 Hola mi amigo, mi nombre es Xicohtencatle
 """);
+await Task.Delay(1000);
 Console.WriteLine("It seems an enemy has arrived");
 leave = true;
 while (leave)
@@ -167,7 +176,9 @@ while (leave)
             if (Str > 6)
             {
                 Console.WriteLine("As the creature finishes his sentence, you initiate combat. However, it seems you were a little...too powerful...");
+                await Task.Delay(1000);
                 Console.WriteLine("The creature doesnt even try to defend himself, He immediatly keels over at the sight of your blade");
+                await Task.Delay(1000);
                 Console.WriteLine("\nYou are able to nab a health potion and what appears to be a makeshift bomb");
                 HP = 10;
                 gold += 2;
@@ -176,8 +187,11 @@ while (leave)
             } else if(Str > 3)
             {
                 Console.WriteLine("As the creature finishes his sentence, you initiate combat.");
+                await Task.Delay(1000);
                 Console.WriteLine("Its a hard fought battle, but in the end you emerge victorious");
+                await Task.Delay(1000);
                 Console.WriteLine("The battle with the creature hurt you, but you've gained valuable experience");
+                await Task.Delay(1000);
                 HP-= 5;
                 Str = 6;
                 gold++;
@@ -186,6 +200,7 @@ while (leave)
             else
             {
                 Console.WriteLine("What a depressing end to your adventure...");
+                await Task.Delay(1000);
                 Console.WriteLine("Your blade, or lack thereof, was no match for the monster's mighty explosives");
                 HP = 0;
                 Environment.Exit(0);
@@ -224,6 +239,7 @@ while (leave)
             }
             leave = false;
             Console.WriteLine("The creature blows up in a fiery explosion");
+            await Task.Delay(1000);
             Console.WriteLine("Congratulations! You have incinerated your first enemy");
             hasFire = false;
             break;
@@ -243,6 +259,7 @@ while (leave)
     else
     {
     Console.WriteLine("Where do you want to go next?");
+    await Task.Delay(1000);
     Console.WriteLine("""
     1 - set up camp and rest
     2 - explore the forest
@@ -320,10 +337,6 @@ a:f        |  |        .__./    //  '\  |//    `.\ '\ (  (  <`   ._  '
         .'`   `                               :J.,`
                                            . ;.+K,:.
                                                .,L+.,  
-------------------------------------------------
-Thank you for visiting https://asciiart.website/
-This ASCII pic can be found at
-https://asciiart.website/art/5342
 """);
         Console.WriteLine("It seems that a inconvenient branch lies in your path.");
         Console.WriteLine("will you try to:\n 1 - Move it\n 2 - Go around it\n 3 - DESTROY IT!!!");
@@ -353,7 +366,9 @@ https://asciiart.website/art/5342
                     } else if (t == 2)
                     {
                         Console.WriteLine("As you take a step beside the branch, your foot falls through the leaves.");
+                        await Task.Delay(1000);
                         Console.WriteLine("A pit opens beneath your feet, and you fall into it.");
+                        await Task.Delay(1000);
                         Console.WriteLine("the fall is fatal and your adventure comes to a depressing end.");
                         Environment.Exit(0);
                     }
@@ -403,6 +418,7 @@ https://asciiart.website/art/5342
 -------------------------------------------------------------------------------
 """);
                             Console.WriteLine("It seems the bomb was a little more powerful than expected.");
+                            await Task.Delay(1000);
                             HP = -10000;
                             Console.WriteLine("You, as well as the branch, have blown up.");
                             Environment.Exit(0);
