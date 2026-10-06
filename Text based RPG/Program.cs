@@ -247,12 +247,12 @@ while (leave)
     1 - set up camp and rest
     2 - explore the forest
     """);
-}
-string a = Console.ReadLine()!;
-if (a != "1" && a != "2")
-{
-     Console.WriteLine("What?");
-}
+    }
+    string a = Console.ReadLine()!;
+    if (a != "1" && a != "2")
+    {
+        Console.WriteLine("What?");
+    }
     else if (a == "1")
     {
         Console.WriteLine("You decide to set up camp and rest");
@@ -416,7 +416,7 @@ https://asciiart.website/art/5342
             }
         }
     }
-}
+
 
 Console.WriteLine("To be continued...");
 Console.WriteLine($"HP: {HP} Str: {Str} Gold: {gold}");
